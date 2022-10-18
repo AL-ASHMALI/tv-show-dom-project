@@ -9,8 +9,18 @@
   </head>
 
   <body>
+    <div class="search-wrapper"></div>
+    <p id="episode-num"></p>
+    <label for="search"></label>
+    <input type="search" id="search" data-search placeholder="Search for Episodes">
+
+    <select id="episodesDropDown" required>
+      <option value="">None</option>
+    </select>
+    <p id="number-of-episodes"> </p>
     <div id="root">
     </div>
+
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
