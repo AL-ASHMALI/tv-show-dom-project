@@ -1,3 +1,15 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--light-grey);
+  --white: #ffffff;
+  --color: #4d5061; 
+  --black: #000000;
+  --shadow: 0 5px 10px 0 rgba(107, 8, 8, 10);
+  --light-grey: #B2B2B2; 
+}
+
 #root {
   display: grid;
   gap: 1em;
@@ -6,8 +18,61 @@
   text-align: center;
 }
 
+.search-wrapper {
+ display: flex; 
+ align-items: center;
+ align-content: center;
+ justify-content: space-evenly;
+ background-color: var(--black);
+ color: var(--white);
+ padding: 1rem;
+}
+
+input{
+  background-color: var(--color);
+  border-style: none;
+  color: #ffff;
+  height: 2rem; 
+  width: 10rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+select{
+  
+  background-color: var(--color);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  border: 0;
+  cursor: pointer;
+}
 .card {
-  border: 3px solid black;
+  border: none;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 1rem;
+  
+}
+.title{
+  box-shadow: var(--shadow);
+  padding: .6rem;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.img{
+  width: 100%;
+  transition: 200ms transform ease-in-out;
+}
+.img:hover{
+  transform: scale(1.025);
+}
+.summary{
+  text-align: left;
+  padding-top: 2rem;
 }
 
 
