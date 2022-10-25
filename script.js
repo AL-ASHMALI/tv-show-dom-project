@@ -1,17 +1,33 @@
 //You can edit ALL of the code here
 //You can edit ALL of the code here
-let allEpisodes = getAllEpisodes();
+let allEpisodes;
+let allShows;
 let displayingNumOfEp = document.getElementById("number-of-episodes");
 let rootElem = document.getElementById("root");
-let url = "https://api.tvmaze.com/shows/82/episodes";
+let showDropDown;
 
-// Fetching the data from the TV maze Api
-fetch(url)
-  .then((Response) => Response.json())
-  .then((data) => (allEpisodes = data));
+function removeAllChildeNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+// let url = "https://api.tvmaze.com/shows/82/episodes";
+
+// // Fetching the data from the TV maze Api
+// fetch(url)
+//   .then((Response) => Response.json())
+//   .then((data) => (allEpisodes = data));
 
 function setup() {
+  fetch("https://api.tvmaze.com/shows")
+    .then((response) => response.json())
+    .then((allShows) => showsDropDown(allShows));
+}
+
+function getEpisodes() {
   makePageForEpisodes(allEpisodes);
+  dropDownAllEpisodes(allEpisodes);
 }
 
 function makePageForEpisodes(episodeList) {
@@ -88,6 +104,39 @@ function dropDownAllEpisodes() {
   }
 }
 
-dropDownAllEpisodes();
+function showsDropDown(showList) {
+  //displaying the show in alphabetical order
+  showList.sort((a, b) => {
+    let aShowName = a.name.toLowerCase();
+    let bShowName = b.name.toLowerCase();
+
+    return aShowName < bShowName ? -1 : 1;
+  });
+
+  // looping through the list of shows and displaying the shows names.
+  showList.map((show) => {
+    showDropDown = document.getElementById("showsDropDown");
+    let option = document.createElement("option");
+    option.innerText = show.name; // the name of the show.
+    option.value = show.id; // the ID of the show.
+    showDropDown.appendChild(option);
+
+    // showDropDown.addEventListener("change", (e) => getShow(e));
+  });
+  showDropDown.addEventListener("change", (e) => displayTheShow(e));
+}
+
+function displayTheShow(e) {
+  removeAllChildeNodes(rootElem);
+  showId = e.target.value;
+  console.log(showId);
+
+  fetch("https://api.tvmaze.com/shows/" + showId + "/episodes")
+    .then((response) => response.json())
+    .then((data) => (allEpisodes = data))
+    .then(() => getEpisodes());
+}
+
+// dropDownAllEpisodes();
 
 window.onload = setup;

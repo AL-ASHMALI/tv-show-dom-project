@@ -62,17 +62,22 @@ select{
   border-radius: 5px;
   font-size: 1.5rem;
   font-weight: 400;
+  color: var(--light-grey);
+  cursor: pointer;
 }
 .img{
   width: 100%;
   transition: 200ms transform ease-in-out;
 }
 .img:hover{
+  cursor: pointer;
   transform: scale(1.025);
 }
 .summary{
   text-align: left;
   padding-top: 2rem;
+  letter-spacing: 2px;
+  color: var(--light-grey)
 }
 
 
