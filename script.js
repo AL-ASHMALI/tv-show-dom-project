@@ -1,5 +1,3 @@
-//You can edit ALL of the code here
-//You can edit ALL of the code here
 let allEpisodes;
 let allShows;
 let displayingNumOfEp = document.getElementById("number-of-episodes");
@@ -11,13 +9,6 @@ function removeAllChildeNodes(parent) {
     parent.removeChild(parent.firstChild);
   }
 }
-
-// let url = "https://api.tvmaze.com/shows/82/episodes";
-
-// // Fetching the data from the TV maze Api
-// fetch(url)
-//   .then((Response) => Response.json())
-//   .then((data) => (allEpisodes = data));
 
 function setup() {
   fetch("https://api.tvmaze.com/shows")
@@ -45,7 +36,6 @@ function makePageForEpisodes(episodeList) {
     )} E${numberFormat(episode.number)}`;
     imageEl.setAttribute("src", episode.image.medium);
     summaryEl.innerHTML = episode.summary;
-    // use append rather than append child so that you can do multiple elemnts t once
     cardEl.append(titleEl, imageEl, summaryEl);
     rootElem.append(cardEl);
   });
@@ -75,7 +65,7 @@ function searchFun() {
 
 searchFun();
 
-// DropDown menu
+// Episode drop-down menu
 const numberFormat = (episodeCode) => {
   return episodeCode.toString().padStart(2, 0);
 };
@@ -107,10 +97,10 @@ function dropDownAllEpisodes() {
 function showsDropDown(showList) {
   //displaying the show in alphabetical order
   showList.sort((a, b) => {
-    let aShowName = a.name.toLowerCase();
-    let bShowName = b.name.toLowerCase();
-
-    return aShowName < bShowName ? -1 : 1;
+    let firstShowName = a.name.toLowerCase();
+    let secondShowName = b.name.toLowerCase();
+    
+    return firstShowName < secondShowName ? -1 : 1;
   });
 
   // looping through the list of shows and displaying the shows names.
