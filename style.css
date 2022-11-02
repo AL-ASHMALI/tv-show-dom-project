@@ -80,4 +80,10 @@ select{
   color: var(--light-grey)
 }
 
-
+.extra-info{
+  padding: 2rem;
+  border: .5px solid var(--light-grey);
+  text-align: center;
+  /* letter-spacing: 2px; */
+  line-height: 2rem;
+}
