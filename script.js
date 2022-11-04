@@ -145,6 +145,9 @@ function displayTheEpisode(e) {
     .then((response) => response.json())
     .then((data) => (allEpisodes = data))
     .then(() => getEpisodes());
+    if(showId === "Select Show"){
+      window.location.reload();
+    }
 }
 // ---------------------------------------------------------------------------------------------------------------------
 
