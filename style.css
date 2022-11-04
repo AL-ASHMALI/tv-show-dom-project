@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+
 body{
   margin: 0;
   padding: 0;
@@ -8,6 +10,7 @@ body{
   --black: #000000;
   --shadow: 0 5px 10px 0 rgba(107, 8, 8, 10);
   --light-grey: #B2B2B2; 
+  --border-radius: 5px;
 }
 
 #root {
@@ -28,9 +31,19 @@ body{
  padding: 1rem;
 }
 
+#home-btn{
+  padding: 0.5rem 1rem;
+  background-color: var(--color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
 input{
   background-color: var(--color);
-  border-style: none;
+  border: none;
+  border-radius: var(--border-radius);
   color: #ffff;
   height: 2rem; 
   width: 10rem;
@@ -39,12 +52,12 @@ input{
 }
 
 select{
-  
   background-color: var(--color);
   font-size: 1rem;
   padding: 0.5rem 1rem;
   color: var(--white);
-  border: 0;
+  border: none; 
+  border-radius: var(--border-radius);
   cursor: pointer;
 }
 .card {
@@ -76,14 +89,17 @@ select{
 .summary{
   text-align: left;
   padding-top: 2rem;
-  letter-spacing: 2px;
-  color: var(--light-grey)
+  /* letter-spacing: 2px; */
+  color: var(--light-grey);
+  font-family: 'Noto Sans Mono', monospace;
 }
 
 .extra-info{
-  padding: 2rem;
-  border: .5px solid var(--light-grey);
-  text-align: center;
+  padding: 1rem;
+  color: lightgreen;
+  /* border: .5px solid var(--light-grey); */
+  text-align: left;
   /* letter-spacing: 2px; */
   line-height: 2rem;
 }
+
